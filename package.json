@@ -1,11 +1,11 @@
-
 {
   "name": "solun-engine",
   "version": "0.0.1",
   "description": "---",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "dev": "nodemon --exec \"electron .\""
   },
   "repository": {
     "type": "git",
@@ -20,10 +20,10 @@
   "homepage": "https://github.com/solunengine/SolunEngine#readme",
   "devDependencies": {
     "electron": "^37.2.6",
-    "electron-reloader": "^1.2.3"
+    "electron-reloader": "^1.2.3",
+    "nodemon": "^3.1.10"
   },
   "dependencies": {
-    "nvk": "^0.8.0",
     "systeminformation": "^5.27.7"
   }
 }

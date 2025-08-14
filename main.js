@@ -26,7 +26,7 @@ function createWindow() {
   });
 
   win.loadFile('index.html');
-
+ 
   if (process.env.NODE_ENV !== 'production') {
     win.webContents.openDevTools();
   }

@@ -1,13 +1,13 @@
 /*******************************************************************************
  *
- *   Solun Engine - The ultimate game engine
- *   Copyright (C) 2025 [Solun Engine Programming Team]
+ * Solun Engine - The ultimate game engine
+ * Copyright (C) 2025 [Solun Engine Programming Team]
  *
- *   This file is part of Solun Engine.
+ * This file is part of Solun Engine.
  *
- *   This program is free software; you can redistribute it and/or
- *   modify it under the terms of the MIT License as published by
- *   the Open Source Initiative.
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the MIT License as published by
+ * the Open Source Initiative.
  *
  ******************************************************************************/
 
@@ -21,11 +21,14 @@ const si = require('systeminformation');
     const gpuInfo = await si.graphics();
     const gpuName = gpuInfo.controllers.length > 0 ? gpuInfo.controllers[0].model : 'Unknown GPU';
 
+    const startTime = performance.now();
     const renderer = new WebGPURenderer();
     await renderer.initialize(gpuName);
+    const endTime = performance.now();
+    const responseTime = (endTime - startTime).toFixed(2);
 
     statusElement.style.color = '#00FF00';
-    statusElement.textContent = 'WebGPU Status: SUCCESS!';
+    statusElement.textContent = `WebGPU Status: SUCCESS! (Responded in ${responseTime} ms)`;
 
   } catch (error) {
     console.error("Critical Error:", error);
