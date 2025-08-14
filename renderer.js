@@ -1,21 +1,24 @@
 // renderer.js
-
 const WebGPURenderer = require('./core/rendering/webgpu_renderer.js');
+const si = require('systeminformation');
 
 (async () => {
-  const renderer = new WebGPURenderer();
   const statusElement = document.createElement('h1');
 
   try {
-    await renderer.initialize();
+    const gpuInfo = await si.graphics();
+    const gpuName = gpuInfo.controllers.length > 0 ? gpuInfo.controllers[0].model : 'Unknown GPU';
+
+    const renderer = new WebGPURenderer();
+    await renderer.initialize(gpuName);
 
     statusElement.style.color = '#00FF00';
-    statusElement.textContent = 'WebGPU Status: SUCCESS!'; 
-    
+    statusElement.textContent = 'WebGPU Status: SUCCESS!';
+
   } catch (error) {
-    console.error("Renderer Initialization Failed:", error);
+    console.error("Critical Error:", error);
     statusElement.style.color = '#FF0000';
-    statusElement.textContent = `WebGPU Status: FAILED! - ${error.message}`;
+    statusElement.textContent = `FATAL ERROR: ${error.message}`;
   }
 
   document.body.appendChild(statusElement);

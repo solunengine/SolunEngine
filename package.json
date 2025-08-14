@@ -18,9 +18,11 @@
   },
   "homepage": "https://github.com/solunengine/SolunEngine#readme",
   "devDependencies": {
-    "electron": "^37.2.6"
+    "electron": "^37.2.6",
+    "electron-reloader": "^1.2.3"
   },
   "dependencies": {
-    "nvk": "^0.8.0"
+    "nvk": "^0.8.0",
+    "systeminformation": "^5.27.7"
   }
 }
