@@ -5,21 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Solun Engine</title>
   <style>
-
+    /*
+     * Basic reset to ensure the viewport is fully utilized and free of default margins.
+     * The renderer will eventually take full control of this space.
+    */
     html, body {
       margin: 0;
       padding: 0;
       width: 100%;
       height: 100vh;
-      overflow: hidden; 
+      overflow: hidden; /* Prevent scrollbars from appearing */
     }
 
+    /*
+     * Placeholder styles for the initial loading screen.
+     * Provides immediate feedback that the application has started.
+    */
     body {
       background-color: #111111;
       color: #eeeeee;
       font-family: 'Consolas', 'Menlo', 'Courier New', monospace;
       
+      /* Centering content until the main renderer attaches */
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
@@ -28,8 +37,8 @@
 </head>
 <body>
   <h1>[ Solun Engine - Canvas Initialized ]</h1>
-  
-    <script src="./renderer.js"></script>
+
+  <script src="./renderer.js"></script>
 
 </body>
 </html>

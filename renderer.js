@@ -1,18 +1,22 @@
 // renderer.js
 
-if (navigator.gpu) {
-  console.log('[Renderer]: ¡¡¡JODER, SÍ!!! ¡¡¡WebGPU está aquí, putos!!!');
-  
-  const h1 = document.createElement('h1');
-  h1.style.color = '#00FF00'; // ¡Verde victoria, joder!
-  h1.textContent = 'WebGPU Status: DETECTED!';
-  document.body.appendChild(h1);
+const WebGPURenderer = require('./core/rendering/webgpu_renderer.js');
 
-} else {
-  console.error('[Renderer]: ¡¡¡A LA MIERDA!!! ¡¡¡No hay WebGPU!!! ¡¡¡Algo va mal!!!');
-  
-  const h1 = document.createElement('h1');
-  h1.style.color = '#FF0000'; // ¡Rojo de puta derrota!
-  h1.textContent = 'WebGPU Status: NOT FOUND!';
-  document.body.appendChild(h1);
-}
+(async () => {
+  const renderer = new WebGPURenderer();
+  const statusElement = document.createElement('h1');
+
+  try {
+    await renderer.initialize();
+
+    statusElement.style.color = '#00FF00';
+    statusElement.textContent = 'WebGPU Status: INITIALIZED & UNCHAINED!'; // ¡¡¡SIN CADENAS, JODER!!!
+    
+  } catch (error) {
+    console.error("Renderer Initialization Failed:", error);
+    statusElement.style.color = '#FF0000';
+    statusElement.textContent = `WebGPU Status: FAILED! - ${error.message}`;
+  }
+
+  document.body.appendChild(statusElement);
+})();
