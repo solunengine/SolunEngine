@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 
 function createWindow() {
@@ -7,7 +7,7 @@ function createWindow() {
     height: 720,
     webPreferences: {
       contextIsolation: true,
-      // preload: path.join(__dirname, 'preload.js') // To be implemented
+      preload: path.join(__dirname, 'preload.js') // Preload.js :)
     }
   });
 
@@ -18,6 +18,11 @@ function createWindow() {
     win.webContents.openDevTools();
   }
 }
+
+// Handle the 'get-app-version' request from the preload script.
+ipcMain.handle('get-app-version', () => {
+  return app.getVersion();
+});
 
 app.whenReady().then(createWindow);
 
