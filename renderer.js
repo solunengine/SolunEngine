@@ -10,7 +10,7 @@ const WebGPURenderer = require('./core/rendering/webgpu_renderer.js');
     await renderer.initialize();
 
     statusElement.style.color = '#00FF00';
-    statusElement.textContent = 'WebGPU Status: INITIALIZED & UNCHAINED!'; // ¡¡¡SIN CADENAS, JODER!!!
+    statusElement.textContent = 'WebGPU Status: SUCCESS!'; // ¡¡¡SIN CADENAS, JODER!!!
     
   } catch (error) {
     console.error("Renderer Initialization Failed:", error);

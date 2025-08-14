@@ -21,7 +21,7 @@ class WebGPURenderer {
       throw new Error("Couldn't get GPUDevice.");
     }
 
-    console.log('[WebGPU]: Renderer initialized successfully!');
+    console.log(`[WebGPU] Renderer initialized successfully. Device handle obtained.`);
     console.log(`[WebGPU]: Using device: ${this.adapter.name}`);
 
     return true;
