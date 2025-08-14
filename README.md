@@ -1,4 +1,4 @@
-# Solun Engine
+# Solun Engine -  2D and 3D Game Engine
 
 ---
 
