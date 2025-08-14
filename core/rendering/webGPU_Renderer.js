@@ -1,4 +1,16 @@
-// core/rendering/webgpu_renderer.js
+/*******************************************************************************
+ *
+ *   Solun Engine - The ultimate game engine
+ *   Copyright (C) 2025 [Solun Engine Programming Team]
+ *
+ *   This file is part of Solun Engine.
+ *
+ *   This program is free software; you can redistribute it and/or
+ *   modify it under the terms of the MIT License as published by
+ *   the Open Source Initiative.
+ *
+ ******************************************************************************/
+
 class WebGPURenderer {
   constructor() {
     this.adapter = null;
